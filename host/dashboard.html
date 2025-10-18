@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="host_dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="overlay" class="overlay"></div>
+
+    <nav id="mySidenav" class="sidenav">
+      <div class="sidebar-user">
+        <div class="avatar">M</div>
+        <span class="username">Md. Abdul Karim</span>
+      </div>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="event_upload.html">Upload Event</a>
+      <a href="#">Notifications</a>
+      <a href="#">Logout</a>
+    </nav>
+
+    <header class="topbar">
+      <button id="menuBtn" class="menu-btn">☰</button>
+      <h1 class="topbar-title">DASHBOARD</h1>
+      <div class="topbar-actions">
+        <div class="user-profile">
+          <div class="avatar">M</div>
+          <span class="username">Md. Abdul Karim</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content-wrap">
+      <div class="header-section">
+        <h2 class="event-title">Event Title</h2>
+        <div class="select-event">
+          <select>
+            <option>Select Event</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="sales-box">
+          <div class="total-sales">
+            <span class="label">TOTAL SALES</span>
+            <span class="amount">৳ 12,500</span>
+            <span class="target">Target:৳ 38,000</span>
+          </div>
+          <div class="sold-unsold-chart">
+            <div class="sold-percentage-display" id="soldPercentageDisplay">
+              75% Sold
+            </div>
+            <div class="pie-chart-wrap" id="pieChartWrap">
+              <div class="pie-chart" id="soldUnsoldPieChart"></div>
+              <div class="pie-chart-center-text">
+                <span class="center-value" id="totalTicketsCount">1000</span>
+                <span class="center-label">Total Tickets</span>
+              </div>
+              <div class="pie-chart-tooltip" id="pieChartTooltip"></div>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item sold">
+                <div class="color-box"></div>
+                <span>Sold</span>
+              </div>
+              <div class="legend-item unsold">
+                <div class="color-box"></div>
+                <span>Unsold</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sales-graph">
+          <span class="graph-title">SALE</span>
+          <div class="chart-container-with-line">
+            <div class="y-axis-labels-line-chart" id="yAxisLabels"></div>
+            <div class="bar-and-line-chart-grid" id="chartGrid">
+              <svg class="line-graph-svg" id="lineGraphSvg"></svg>
+            </div>
+            <div class="x-axis-labels-line-chart" id="xAxisLabels"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="buyers-list">
+        <span class="buyers-title">List of Ticket Buyers</span>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Smith</td>
+              <td>john@gmail.com</td>
+              <td>555-123-4567</td>
+              <td>2024.07.20</td>
+            </tr>
+            <tr>
+              <td>Jane Doe</td>
+              <td>jane@gmail.com</td>
+              <td>555-987-6543</td>
+              <td>2024.07.19</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <script src="host_dashboard.js"></script>
+  </body>
+</html>

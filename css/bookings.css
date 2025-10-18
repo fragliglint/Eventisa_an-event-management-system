@@ -1,0 +1,587 @@
+/* --- Bookings Page Specific --- */
+
+/* Category list styling */
+.categories-card {
+    height: 100%;
+    box-shadow: 0 2px 12px rgba(176,139,255,0.07);
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px 0 10px 0;
+    overflow: hidden;
+}
+
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: var(--small-radius);
+    background: #fbfbff;
+    border: 1px solid var(--soft-border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.category-item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: var(--small-radius);
+    background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: -1;
+}
+
+.category-item:hover {
+    background: rgba(176, 139, 255, 0.1);
+    border-color: var(--accent1);
+    transform: translateY(-1px);
+}
+
+.category-item:hover::after {
+    opacity: 0.07;
+}
+
+.category-item.active {
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    color: white;
+    border-color: var(--accent1);
+}
+
+.category-item.active .category-count,
+.category-item.active .category-percentage {
+    color: white;
+}
+
+.category-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.category-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+.category-item.active .category-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.category-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.category-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.category-count {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.category-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 80px;
+}
+
+.category-percentage {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--accent2);
+}
+
+.category-bar {
+    width: 80px;
+    height: 4px;
+    background: var(--soft-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.category-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    border-radius: 2px;
+    transition: width 0.7s cubic-bezier(.4,2,.6,1);
+    width: 0; /* Start at 0 for animation */
+}
+
+.category-item.active .category-progress {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Category badges in table */
+.category-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: rgba(176, 139, 255, 0.1);
+    border: 1px solid rgba(176, 139, 255, 0.3);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent2);
+}
+
+/* Table header with tabs and actions */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.export-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--soft-border);
+    background: var(--card-bg);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.export-btn:hover {
+    background: rgba(176, 139, 255, 0.1);
+    border-color: var(--accent1);
+}
+
+/* Tabs above bookings table */
+.tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--soft-border);
+    background: var(--card-bg);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: rgba(176, 139, 255, 0.1);
+}
+
+.tab-btn.active {
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    color: #fff;
+    border: 0;
+}
+
+/* Table styling tweak */
+.table-card {
+    overflow: hidden;
+}
+
+.table thead th {
+    background: #fbfbff;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 12px 16px;
+}
+
+.table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--soft-border);
+}
+
+.table tbody tr:hover {
+    background: #faf9ff;
+}
+
+/* Quantity styling */
+.quantity {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--accent1);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Status badges */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.confirmed {
+    background: linear-gradient(90deg, #DFF7EC, #D6F1E9);
+    color: #0f9b58;
+}
+
+.badge.pending {
+    background: linear-gradient(90deg, #FFF3DB, #FFF6E6);
+    color: #c77d00;
+}
+
+.badge.cancelled {
+    background: linear-gradient(90deg, #FFEFF6, #FFF0F8);
+    color: #c42b6f;
+}
+
+/* No data state */
+.no-data {
+    text-align: center;
+    padding: 60px 20px !important;
+}
+
+.no-data-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-light);
+}
+
+.no-data-icon {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+.no-data-content h3 {
+    margin: 0;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.no-data-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Donut chart styling */
+.donut-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.donut-center {
+    position: absolute;
+    text-align: center;
+}
+
+.donut-total {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.donut-label {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+/* Equal card heights */
+.categories-card,
+.col-right .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 450px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .table-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .tabs {
+        justify-content: center;
+    }
+    
+    .table-actions {
+        justify-content: center;
+    }
+    
+    .category-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .category-stats {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-width: auto;
+    }
+}
+/* --- Events List Styling --- */
+
+.events-card {
+    height: 100%;
+    box-shadow: 0 2px 12px rgba(176,139,255,0.07);
+    background: #fff;
+    border-radius: 18px;
+    padding: 18px 0 10px 0;
+    overflow: hidden;
+}
+
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: var(--small-radius);
+    background: #fbfbff;
+    border: 1px solid var(--soft-border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.event-item::after {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: var(--small-radius);
+    background: linear-gradient(90deg, var(--accent1) 0%, var(--accent2) 100%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: -1;
+}
+
+.event-item:hover {
+    background: rgba(176, 139, 255, 0.1);
+    border-color: var(--accent1);
+    transform: translateY(-1px);
+}
+
+.event-item:hover::after {
+    opacity: 0.07;
+}
+
+.event-item.active {
+    background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    color: white;
+    border-color: var(--accent1);
+}
+
+.event-item.active .event-category,
+.event-item.active .sales-amount,
+.event-item.active .progress-percentage {
+    color: white;
+}
+
+.event-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.event-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+.event-item.active .event-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.event-name {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.event-category {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.event-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    min-width: 120px;
+}
+
+.ticket-sales {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.sales-figures {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-weight: 600;
+}
+
+.sold {
+    color: var(--accent2);
+    font-size: 14px;
+}
+
+.event-item.active .sold {
+    color: white;
+}
+
+.separator {
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+.total {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.tickets-label {
+    font-size: 10px;
+    color: var(--text-light);
+    margin-left: 4px;
+    font-weight: 500;
+}
+
+.sales-amount {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent2);
+}
+
+.sales-progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--soft-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2));
+    border-radius: 2px;
+    transition: width 0.7s cubic-bezier(.4,2,.6,1);
+    width: 0; /* Start at 0 for animation */
+}
+
+.event-item.active .progress-fill {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.progress-percentage {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent2);
+    min-width: 30px;
+    text-align: right;
+}
+
+/* Responsive design for events */
+@media (max-width: 768px) {
+    .event-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    .event-stats {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-width: auto;
+    }
+    
+    .sales-progress {
+        flex: 0 0 auto;
+        width: auto;
+    }
+    
+    .progress-bar {
+        width: 80px;
+    }
+}

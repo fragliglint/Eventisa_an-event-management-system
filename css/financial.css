@@ -1,0 +1,156 @@
+/* ===== Financial Dashboard Styles ===== */
+
+/* Page content */
+.content {
+  padding: 2rem;
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.stat-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.trend {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.trend.up {
+  color: #22c55e;
+}
+
+.trend.down {
+  color: #ef4444;
+}
+
+/* Charts Section */
+.charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-box h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.chart-box.large {
+  grid-column: span 2;
+}
+
+.chart-box canvas {
+  width: 100% !important;
+  height: 260px !important;
+}
+
+.rev-total,
+.exp-total {
+  margin-top: 0.75rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  text-align: center;
+}
+
+/* Transactions Table */
+.transactions {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.transactions h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2d3d;
+}
+
+.transactions table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.transactions th {
+  text-align: left;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.transactions td {
+  padding: 10px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+}
+
+.transactions tbody tr:hover {
+  background: #f9fafb;
+}
+
+.status {
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.status.done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .charts {
+    grid-template-columns: 1fr;
+  }
+  .chart-box.large {
+    grid-column: span 1;
+  }
+}
